@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		global.json = global.json
 		NuGet.Config = NuGet.Config
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Dawsonsoft.DotNet.DevFeed.Server", "src\Dawsonsoft.DotNet.DevFeed.Server\Dawsonsoft.DotNet.DevFeed.Server.xproj", "{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}"
