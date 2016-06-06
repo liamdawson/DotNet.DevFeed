@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{04E8FA4A-46B1-4C94-8B39-609F70EEE0C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49A11241-6B10-4FBD-9E03-FB3BF632F553}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		global.json = global.json
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Dawsonsoft.DotNet.DevFeed.Server", "src\Dawsonsoft.DotNet.DevFeed.Server\Dawsonsoft.DotNet.DevFeed.Server.xproj", "{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Dawsonsoft.DotNet.DevFeed.Core", "src\Dawsonsoft.DotNet.DevFeed.Core\Dawsonsoft.DotNet.DevFeed.Core.xproj", "{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Dawsonsoft.DotNet.DevFeed.Tools", "src\Dawsonsoft.DotNet.DevFeed.Tools\Dawsonsoft.DotNet.DevFeed.Tools.xproj", "{138BE6E0-82DF-47F8-A7DA-C830FDDDA004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138BE6E0-82DF-47F8-A7DA-C830FDDDA004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138BE6E0-82DF-47F8-A7DA-C830FDDDA004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138BE6E0-82DF-47F8-A7DA-C830FDDDA004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138BE6E0-82DF-47F8-A7DA-C830FDDDA004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4A4CA84-5517-4FC1-9187-F28B7BE3DF42} = {04E8FA4A-46B1-4C94-8B39-609F70EEE0C1}
+		{766BF5AD-9EEF-4CE8-AD1A-D8B6043529DF} = {04E8FA4A-46B1-4C94-8B39-609F70EEE0C1}
+		{138BE6E0-82DF-47F8-A7DA-C830FDDDA004} = {04E8FA4A-46B1-4C94-8B39-609F70EEE0C1}
+	EndGlobalSection
+EndGlobal

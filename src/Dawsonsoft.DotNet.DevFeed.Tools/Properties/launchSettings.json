@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Dawsonsoft.DotNet.DevFeed.Tools": {
+      "commandName": "Project",
+      "commandLineArgs": "."
+    }
+  }
+}
