@@ -5,14 +5,24 @@
     "outputName": "dotnet-dev-feed",
     "warningsAsErrors": true
   },
+  "authors": [
+    "Liam Dawson <liam@liamdawson.me>"
+  ],
+
   "packOptions": {
+    "licenseUrl": "https://github.com/liamdawson/DotNet.DevFeed/blob/master/LICENSE.txt",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/liamdawson/DotNet.DevFeed"
+    },
     "tags": [
       "dotnet",
       "nuget",
       "dev",
       "development",
       "feed"
-    ]
+    ],
+    "summary": "Provides tooling to maintain a basic dev nuget feed for a project that automatically packs and updates when a build happens."
   },
   "dependencies": {
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
