@@ -51,14 +51,14 @@ namespace Dawsonsoft.DotNet.DevFeed.Tools
             app.FullName = "dotnet dev feed tool";
 
             app.HelpOption("-?|-h|--help");
-            var projectOption = app.Argument("project-dir", "Directory of the project to produce a dev feed for", true);
-            var portOption = app.Option("--port <PORT>", "Port to run the dev feed server on", CommandOptionType.SingleValue);
+            var projectOption = app.Argument("project-dir", "Project the feed targets", true);
+            var portOption = app.Option("--port <PORT>", "Port for the dev feed server", CommandOptionType.SingleValue);
+            var refreshOption = app.Option("--refresh <REFRESH_COMMAND>", "Command to run when feed is updated", CommandOptionType.SingleValue);
 
             app.OnExecute(() =>
             {
                 var logger = _loggerFactory.CreateLogger<Program>();
 
-                logger.LogInformation($"Port Option: {portOption.Value()}");
                 var port = int.Parse(portOption.Value() ?? "5000");
 
                 var projectDir = Path.GetFullPath(projectOption.Value ?? Directory.GetCurrentDirectory());
@@ -66,7 +66,6 @@ namespace Dawsonsoft.DotNet.DevFeed.Tools
                 var projectWatcher = new ProjectOutputWatcher(outputDir);
 
                 var projectName = Path.GetFileName(projectDir);
-                logger.LogInformation($"project name: {projectName}");
 
                 var staticSegment = "devf-";
                 var packageResolver = new PackageResolutionService(new IPackageResolutionServiceSettings { BasePackageLocation = new Uri(Path.Combine("file://", outputDir)) });
@@ -87,18 +86,28 @@ namespace Dawsonsoft.DotNet.DevFeed.Tools
                     prevMax = existingVersions.Max();
                 }
 
-                logger.LogInformation($"Previous maximum: {prevMax}");
-
                 var versionInfo = new DevFeedPackageVersionInfo(staticSegment, prevMax + 1);
                 
                 logger.LogInformation($"Watching {outputDir} for changes...");
+
                 projectWatcher.Changed += (sender, e) =>
                 {
-                    logger.LogInformation("repacking project...");
-                    Process.Start(new ProcessStartInfo("dotnet", $"pack --version-suffix {versionInfo.NextVersion}") {
-                        WorkingDirectory = projectDir
+                    logger.LogInformation("Repacking project.");
+                    Task.Factory.StartNew(() =>
+                    {
+                        Process.Start(new ProcessStartInfo("dotnet", $"pack --version-suffix {versionInfo.NextVersion}")
+                        {
+                            WorkingDirectory = projectDir
+                        }).WaitForExit();
+                        if(refreshOption.HasValue())
+                        {
+                            logger.LogInformation("Running refresh command.");
+                            var res = Process.Start(new ProcessStartInfo("cmd.exe", $"/c {refreshOption.Value()}")
+                            {
+                                WorkingDirectory = projectDir
+                            });
+                        }
                     });
-                    // Process.Start();
                 };
 
                 var configuration = new ConfigurationBuilder();
