@@ -1,3 +1,5 @@
+**Deprecated**: Try https://github.com/loic-sharma/BaGet instead.
+
 # dotnet dev-feed
 
 ## Usage:
